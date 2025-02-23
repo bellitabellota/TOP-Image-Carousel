@@ -1,0 +1,51 @@
+.carousel-container {
+  display: flex;
+  margin-left:auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.control-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-control{
+  color: white;
+  background: black;
+  width: 50px;
+  font-weight: 600;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 26px;
+  margin:5px;
+}
+
+.image-container {
+  flex:1;
+  max-width: 1000px;
+}
+
+.image-container > img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.image-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  gap:10px;
+}
+
+.image-indicator > div {
+  background-color: white;
+  border: 2px solid black;
+  width: 10px;
+  height: 10px;
+  border-radius: 6px;
+}
