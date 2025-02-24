@@ -47,6 +47,20 @@ class Carousel{
       indicator.classList = `js-image-indicator`;
       this.imageIndicatorContainer.appendChild(indicator);
     });
+    this.addIndicatorClickEvent();
+  }
+
+  addIndicatorClickEvent() {
+    const imageIndicators = document.querySelectorAll(".js-image-indicator");
+
+    imageIndicators.forEach((indicator) => {
+      indicator.addEventListener("click", () => {
+        this.currentImageIndex = Number(indicator.dataset.imageIndex);
+
+        this.displayCurrentImage();
+        this.highlightCurrentImageIndicator();
+      });
+    });
   }
 
   addEventListenersToControls() {
