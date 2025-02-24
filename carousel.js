@@ -29,7 +29,7 @@ class Carousel{
   }
 
   addCurrentHighlight(indicator) {
-    if (indicator.dataset.imageIndex === String(this.currentImageIndex)) {
+    if (Number(indicator.dataset.imageIndex) === this.currentImageIndex) {
       indicator.classList.add("highlighted");
     }
   }
