@@ -1,7 +1,8 @@
 class Carousel{
-  constructor(imageContainer, imageSources, previousControl, nextControl) {
+  constructor(imageContainer, imageSources, previousControl, nextControl, imageIndicatorContainer) {
     this.imageContainer = imageContainer;
     this.images = this.createImageElements(imageSources);
+    this.imageIndicatorContainer = imageIndicatorContainer;
     this.previousControl = previousControl;
     this.nextControl = nextControl;
     this.currentImageIndex = 0;
@@ -10,8 +11,18 @@ class Carousel{
   }
 
   initializeCarouselView() {
+    /* ?? replace the line below with updateImageIndex */
     this.imageContainer.appendChild(this.images[this.currentImageIndex]);
     this.addEventListenersToControls();
+    this.addImageIndicators();
+  }
+
+  addImageIndicators(){
+    this.images.forEach((image, image_index) => {
+      const indicator = document.createElement("div");
+      indicator.classList = `data-image-index =${image_index}`;
+      this.imageIndicatorContainer.appendChild(indicator);
+    });
   }
 
   addEventListenersToControls() {
@@ -21,7 +32,6 @@ class Carousel{
 
   addClickEventListener(control, increment){
     control.addEventListener("click", () => {
-
       this.updateImageIndex(control, increment);
 
 

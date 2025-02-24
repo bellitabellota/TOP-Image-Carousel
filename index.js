@@ -6,5 +6,6 @@ const imageSources = ["./images/_A642133.jpg", "./images/_A642237.jpg", "./image
 
 const previousControl = document.querySelector(".js-previous");
 const nextControl = document.querySelector(".js-next");
+const imageIndicatorContainer = document.querySelector(".js-image-indicator-container");
 
-new Carousel(imageContainer, imageSources, previousControl, nextControl);
+new Carousel(imageContainer, imageSources, previousControl, nextControl, imageIndicatorContainer);
