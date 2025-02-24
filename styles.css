@@ -43,9 +43,12 @@
 }
 
 .image-indicator-container > div {
-  background-color: white;
   border: 2px solid black;
   width: 10px;
   height: 10px;
   border-radius: 6px;
+}
+
+.highlighted {
+  background-color: black;
 }

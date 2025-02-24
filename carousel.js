@@ -15,12 +15,36 @@ class Carousel{
     this.imageContainer.appendChild(this.images[this.currentImageIndex]);
     this.addEventListenersToControls();
     this.addImageIndicators();
+    this.highlightCurrentImageIndicator();
+  }
+
+  highlightCurrentImageIndicator() {
+    const imageIndicators = document.querySelectorAll(".js-image-indicator");
+
+    imageIndicators.forEach((indicator) => {
+      this.removePreviousHighlight(indicator);
+
+      this.addCurrentHighlight(indicator);
+    });
+  }
+
+  addCurrentHighlight(indicator) {
+    if (indicator.dataset.imageIndex === String(this.currentImageIndex)) {
+      indicator.classList.add("highlighted");
+    }
+  }
+
+  removePreviousHighlight(indicator) {
+    if (indicator.classList.contains("highlighted")) {
+      indicator.classList.remove("highlighted");
+    }
   }
 
   addImageIndicators(){
     this.images.forEach((image, image_index) => {
       const indicator = document.createElement("div");
-      indicator.classList = `data-image-index =${image_index}`;
+      indicator.dataset.imageIndex = `${image_index}`;
+      indicator.classList = `js-image-indicator`;
       this.imageIndicatorContainer.appendChild(indicator);
     });
   }
@@ -34,8 +58,8 @@ class Carousel{
     control.addEventListener("click", () => {
       this.updateImageIndex(control, increment);
 
-
       this.displayCurrentImage();
+      this.highlightCurrentImageIndicator();
     });
   }
 
