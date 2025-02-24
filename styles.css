@@ -15,13 +15,20 @@
   color: white;
   background: black;
   width: 50px;
+  height: 50px;
   font-weight: 600;
   font-size: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 26px;
+  border-radius: 30px;
   margin:5px;
+  border: 3px solid white;
+}
+
+.carousel-control:hover {
+  box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .image-container {
@@ -47,6 +54,11 @@
   width: 10px;
   height: 10px;
   border-radius: 6px;
+}
+
+.image-indicator-container > div:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
 }
 
 .highlighted {
