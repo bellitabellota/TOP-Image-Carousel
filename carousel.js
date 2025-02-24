@@ -11,8 +11,7 @@ class Carousel{
   }
 
   initializeCarouselView() {
-    /* ?? replace the line below with updateImageIndex */
-    this.imageContainer.appendChild(this.images[this.currentImageIndex]);
+    this.displayCurrentImage();
     this.addEventListenersToControls();
     this.addImageIndicators();
     this.highlightCurrentImageIndicator();
@@ -88,7 +87,10 @@ class Carousel{
   }
 
   displayCurrentImage() {
-    this.imageContainer.removeChild(this.imageContainer.firstElementChild);
+    if(this.imageContainer.firstElementChild){
+      this.imageContainer.removeChild(this.imageContainer.firstElementChild);
+    }
+    
     this.imageContainer.appendChild(this.images[this.currentImageIndex]);
   }
 
